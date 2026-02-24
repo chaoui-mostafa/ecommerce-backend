@@ -1,0 +1,89 @@
+{
+  "name": "ecommerce-backend",
+  "version": "1.0.0",
+  "description": "Professional E-commerce Backend API",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "seed:admin": "node src/utils/seedAdmin.js",
+    "seed:categories": "node src/utils/seedCategories.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:integration": "jest --testPathPattern=integration",
+    "test:e2e": "jest --testPathPattern=e2e --runInBand",
+    "test:performance": "node src/tests/performance/load-test.js",
+    "test:all": "npm run test:integration && npm run test:e2e && npm run test:performance",
+    "test:ci": "jest --ci --coverage --maxWorkers=2",
+    "test:verbose": "jest --verbose",
+    "test:watch:verbose": "jest --watch --verbose",
+    "test:dashboard": "node src/tests/runner.js",
+    "test:report": "jest --json --outputFile=./src/tests/reports/test-results.json",
+    "test:html": "npm run test:report && node src/tests/generate-html-report.js"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testTimeout": 10000,
+    "verbose": true,
+    "collectCoverage": true,
+    "coverageDirectory": "./src/tests/coverage",
+    "coverageReporters": [
+      "text",
+      "lcov",
+      "html"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/server.js",
+      "!src/config/**",
+      "!**/node_modules/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  },
+  "keywords": [],
+  "author": "Mostafa Chaoui",
+  "license": "ISC",
+  "dependencies": {
+    "@exortek/express-mongo-sanitize": "^1.1.1",
+    "autocannon": "^8.0.0",
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.9.0",
+    "colors": "^1.4.0",
+    "compression": "^1.8.1",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "csurf": "^1.11.0",
+    "dotenv": "^17.3.1",
+    "express": "^4.22.1",
+    "express-rate-limit": "^8.2.1",
+    "express-session": "^1.19.0",
+    "express-slow-down": "^3.0.1",
+    "express-status-monitor": "^1.3.4",
+    "express-validator": "^7.3.1",
+    "helmet": "^8.1.0",
+    "hpp": "^0.2.3",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.2.1",
+    "morgan": "^1.10.1",
+    "multer": "^2.0.2",
+    "node-fetch": "^2.7.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "uuid": "^13.0.0",
+    "winston": "^3.19.0",
+    "xss-clean": "^0.1.4"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.14"
+  }
+}

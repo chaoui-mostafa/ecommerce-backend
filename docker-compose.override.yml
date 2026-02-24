@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  api:
+    command: npm run dev
+    environment:
+      - NODE_ENV=development
+      - DEBUG=express:*
+    volumes:
+      - ./src:/usr/src/app/src
+      - ./tests:/usr/src/app/tests
+    ports:
+      - "9229:9229" # Debug port
+    profiles: ["dev"]
+
+  mongodb:
+    ports:
+      - "27017:27017" # Expose MongoDB port for local tools
+
+  redis:
+    ports:
+      - "6379:6379" # Expose Redis port for local tools

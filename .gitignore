@@ -1,0 +1,36 @@
+# Dependency directories
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Uploads
+uploads/*
+!uploads/.gitkeep
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Production
+dist/
+build/
+
+# Misc
+*.pid
+*.seed
+*.pid.lock
